@@ -1,0 +1,249 @@
+{
+  "metrics": {
+    "intent_accuracy": 100.0,
+    "retrieval_hit_rate": 100.0,
+    "fact_accuracy": 100.0,
+    "hallucination_refusal_rate": 100.0,
+    "structured_output_validity": 100.0
+  },
+  "overall_score": 100.0,
+  "details": {
+    "intent": {
+      "passed": 6,
+      "total": 6,
+      "score": 100.0,
+      "results": [
+        {
+          "query": "What was the CTR of the Morning Made Simple campaign?",
+          "expected": "FACT_LOOKUP",
+          "predicted": "FACT_LOOKUP",
+          "passed": true
+        },
+        {
+          "query": "Create a marketing campaign for HydraBoost Serum targeting young professionals.",
+          "expected": "CAMPAIGN_GENERATION",
+          "predicted": "CAMPAIGN_GENERATION",
+          "passed": true
+        },
+        {
+          "query": "Analyze the Young Professional persona.",
+          "expected": "SEGMENT_ANALYSIS",
+          "predicted": "SEGMENT_ANALYSIS",
+          "passed": true
+        },
+        {
+          "query": "Create short educational morning-routine videos.",
+          "expected": "CAMPAIGN_GENERATION",
+          "predicted": "CAMPAIGN_GENERATION",
+          "passed": true
+        },
+        {
+          "query": "What channels were used in the Protect Your Day campaign?",
+          "expected": "FACT_LOOKUP",
+          "predicted": "FACT_LOOKUP",
+          "passed": true
+        },
+        {
+          "query": "Analyze NovaGlow's target audience.",
+          "expected": "SEGMENT_ANALYSIS",
+          "predicted": "SEGMENT_ANALYSIS",
+          "passed": true
+        }
+      ]
+    },
+    "retrieval": {
+      "passed": 4,
+      "total": 4,
+      "score": 100.0,
+      "results": [
+        {
+          "query": "What was the CTR of Morning Made Simple?",
+          "expected_source": "campaign_history.pdf",
+          "retrieved_sources": [
+            "campaign_history.pdf - page 1",
+            "brand_guidelines.pdf - page 2",
+            "customer_personas.pdf - page 1",
+            "brand_guidelines.pdf - page 1"
+          ],
+          "passed": true
+        },
+        {
+          "query": "What age range is the Young Professional persona?",
+          "expected_source": "customer_personas.pdf",
+          "retrieved_sources": [
+            "customer_personas.pdf - page 1",
+            "customer_personas.pdf - page 2",
+            "brand_guidelines.pdf - page 1",
+            "campaign_history.pdf - page 2"
+          ],
+          "passed": true
+        },
+        {
+          "query": "What are the benefits of HydraBoost Serum?",
+          "expected_source": "brand_guidelines.pdf",
+          "retrieved_sources": [
+            "brand_guidelines.pdf - page 2",
+            "campaign_history.pdf - page 1",
+            "brand_guidelines.pdf - page 1",
+            "customer_personas.pdf - page 1"
+          ],
+          "passed": true
+        },
+        {
+          "query": "Which channels do young professionals use?",
+          "expected_source": "customer_personas.pdf",
+          "retrieved_sources": [
+            "customer_personas.pdf - page 1",
+            "campaign_history.pdf - page 2",
+            "customer_personas.pdf - page 2",
+            "campaign_history.pdf - page 1"
+          ],
+          "passed": true
+        }
+      ]
+    },
+    "fact_accuracy": {
+      "passed": 3,
+      "total": 3,
+      "score": 100.0,
+      "results": [
+        {
+          "query": "What was the CTR of the Morning Made Simple campaign?",
+          "expected_text": "4.4",
+          "answer": "### answer\n\n4.4%",
+          "passed": true
+        },
+        {
+          "query": "How many impressions did Morning Made Simple receive?",
+          "expected_text": "420,000",
+          "answer": "### answer\n\n420,000",
+          "passed": true
+        },
+        {
+          "query": "What age range is the Young Professional persona?",
+          "expected_text": "25",
+          "answer": "### answer\n\n25–34",
+          "passed": true
+        }
+      ]
+    },
+    "hallucination": {
+      "passed": 3,
+      "total": 3,
+      "score": 100.0,
+      "results": [
+        {
+          "query": "What was NovaGlow's Facebook campaign conversion rate?",
+          "answer": "### answer\n\nthe available knowledge base does not contain this information.",
+          "passed": true
+        },
+        {
+          "query": "What is the price of HydraBoost Serum?",
+          "answer": "### answer\n\nthe available knowledge base does not contain the price of hydraboost serum.",
+          "passed": true
+        },
+        {
+          "query": "What clinical trial proved HydraBoost Serum improves skin health?",
+          "answer": "### answer\n\nthe available knowledge base does not contain this information.",
+          "passed": true
+        }
+      ]
+    },
+    "structured_output": {
+      "passed": 3,
+      "total": 3,
+      "score": 100.0,
+      "results": [
+        {
+          "query": "What was the CTR of Morning Made Simple?",
+          "expected_intent": "FACT_LOOKUP",
+          "actual_intent": "FACT_LOOKUP",
+          "structured": {
+            "answer": "4.4%",
+            "confidence": "High",
+            "sources": [
+              "campaign_history.pdf - page 1"
+            ]
+          },
+          "passed": true
+        },
+        {
+          "query": "Create a campaign for HydraBoost Serum targeting young professionals.",
+          "expected_intent": "CAMPAIGN_GENERATION",
+          "actual_intent": "CAMPAIGN_GENERATION",
+          "structured": {
+            "campaign_name": "HydraBoost Morning Routine",
+            "objective": "Increase awareness among young professionals and drive sales of HydraBoost Serum",
+            "target_audience": "Young professionals aged 25-34 living in urban areas",
+            "key_message": "Effective skincare that fits into a busy lifestyle.",
+            "recommended_channels": [
+              "Instagram",
+              "TikTok"
+            ],
+            "campaign_ideas": [
+              {
+                "idea": "Short educational morning-routine videos",
+                "classification": "reasonable_inference",
+                "evidence": "Short educational videos performed better than static images and simple morning-routine content generated higher engagement."
+              },
+              {
+                "idea": "Influencer partnerships",
+                "classification": "general_recommendation",
+                "evidence": null
+              }
+            ],
+            "reasoning": "The following ideas are reasonable inferences based on retrieved campaign or persona evidence: Short educational morning-routine videos. The following ideas are general marketing recommendations and are not presented as NovaGlow historical evidence: Influencer partnerships.",
+            "general_recommendations": [],
+            "confidence": "Medium",
+            "sources": [
+              "campaign_history.pdf - page 1",
+              "brand_guidelines.pdf - page 2",
+              "brand_guidelines.pdf - page 1",
+              "customer_personas.pdf - page 1"
+            ]
+          },
+          "passed": true
+        },
+        {
+          "query": "Analyze the Young Professional persona.",
+          "expected_intent": "SEGMENT_ANALYSIS",
+          "actual_intent": "SEGMENT_ANALYSIS",
+          "structured": {
+            "segment_name": "Young Professional",
+            "characteristics": [
+              "Age: 25-34",
+              "Occupation: Corporate employees, consultants, engineers and technology professionals"
+            ],
+            "pain_points": [
+              "Limited time for complicated skincare routines",
+              "Stress and long working hours",
+              "Wants simple skincare products",
+              "Prefers products with clear benefits"
+            ],
+            "digital_behavior": [
+              "Instagram",
+              "TikTok",
+              "YouTube",
+              "LinkedIn"
+            ],
+            "buying_motivation": [
+              "Convenience, quality and trustworthy product information"
+            ],
+            "marketing_recommendations": [
+              "Use simple skincare products with clear benefits",
+              "Highlight the convenience of the product"
+            ],
+            "confidence": "Medium",
+            "sources": [
+              "customer_personas.pdf - page 1",
+              "customer_personas.pdf - page 2",
+              "brand_guidelines.pdf - page 1",
+              "campaign_history.pdf - page 2"
+            ]
+          },
+          "passed": true
+        }
+      ]
+    }
+  }
+}

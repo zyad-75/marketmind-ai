@@ -1,0 +1,89 @@
+{
+  "intent_tests": [
+    {
+      "query": "What was the CTR of the Morning Made Simple campaign?",
+      "expected_intent": "FACT_LOOKUP"
+    },
+    {
+      "query": "Create a marketing campaign for HydraBoost Serum targeting young professionals.",
+      "expected_intent": "CAMPAIGN_GENERATION"
+    },
+    {
+      "query": "Analyze the Young Professional persona.",
+      "expected_intent": "SEGMENT_ANALYSIS"
+    },
+    {
+      "query": "Create short educational morning-routine videos.",
+      "expected_intent": "CAMPAIGN_GENERATION"
+    },
+    {
+      "query": "What channels were used in the Protect Your Day campaign?",
+      "expected_intent": "FACT_LOOKUP"
+    },
+    {
+      "query": "Analyze NovaGlow's target audience.",
+      "expected_intent": "SEGMENT_ANALYSIS"
+    }
+  ],
+
+  "retrieval_tests": [
+    {
+      "query": "What was the CTR of Morning Made Simple?",
+      "expected_source": "campaign_history.pdf"
+    },
+    {
+      "query": "What age range is the Young Professional persona?",
+      "expected_source": "customer_personas.pdf"
+    },
+    {
+      "query": "What are the benefits of HydraBoost Serum?",
+      "expected_source": "brand_guidelines.pdf"
+    },
+    {
+      "query": "Which channels do young professionals use?",
+      "expected_source": "customer_personas.pdf"
+    }
+  ],
+
+  "fact_tests": [
+    {
+      "query": "What was the CTR of the Morning Made Simple campaign?",
+      "expected_text": "4.4"
+    },
+    {
+      "query": "How many impressions did Morning Made Simple receive?",
+      "expected_text": "420,000"
+    },
+    {
+      "query": "What age range is the Young Professional persona?",
+      "expected_text": "25"
+    }
+  ],
+
+  "hallucination_tests": [
+    {
+      "query": "What was NovaGlow's Facebook campaign conversion rate?"
+    },
+    {
+      "query": "What is the price of HydraBoost Serum?"
+    },
+    {
+      "query": "What clinical trial proved HydraBoost Serum improves skin health?"
+    }
+  ],
+
+  "structured_output_tests": [
+    {
+      "query": "What was the CTR of Morning Made Simple?",
+      "expected_intent": "FACT_LOOKUP"
+    },
+    {
+      "query": "Create a campaign for HydraBoost Serum targeting young professionals.",
+      "expected_intent": "CAMPAIGN_GENERATION"
+    },
+    {
+      "query": "Analyze the Young Professional persona.",
+      "expected_intent": "SEGMENT_ANALYSIS"
+    }
+  ]
+}
